@@ -1,6 +1,8 @@
 package com.example.demo.application.usecase;
 
+import com.example.demo.application.port.input.SampleInputData;
 import com.example.demo.application.port.input.SampleInputPort;
+import com.example.demo.application.port.output.SampleOutputData;
 import com.example.demo.application.port.output.SampleOutputPort;
 
 public class SampleUseCase implements SampleInputPort {
@@ -12,8 +14,10 @@ public class SampleUseCase implements SampleInputPort {
   }
 
   @Override
-  public void input(String value) {
-    outputPort.output(value.toUpperCase());
+  public void input(SampleInputData data) {
+    String upperCaseValue = data.getValue().toUpperCase();
+    SampleOutputData outputData = new SampleOutputData(upperCaseValue);
+    outputPort.output(outputData);
   }
 
 }

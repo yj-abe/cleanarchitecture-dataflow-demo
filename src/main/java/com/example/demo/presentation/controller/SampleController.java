@@ -1,5 +1,6 @@
 package com.example.demo.presentation.controller;
 
+import com.example.demo.application.port.input.SampleInputData;
 import com.example.demo.application.port.input.SampleInputPort;
 
 public class SampleController {
@@ -11,7 +12,7 @@ public class SampleController {
   }
 
   public void inputValue(String value) {
-    inputPort.input(value);
+    inputPort.input(new SampleInputData(value));
   }
 
 }
